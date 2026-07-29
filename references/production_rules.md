@@ -18,6 +18,7 @@
 
 - Every city, point, route, ring, and military marker must be placed by lon/lat.
 - Map-space overlays belong under one `MAP_RIG_geo_locked_camera` null.
+- Parent map-space overlays with `setParentWithJump(rig)`. Plain `.parent = rig` can compensate transforms and make camera focus math disagree with visible layer positions.
 - UI layers do not belong under the map rig.
 - Text labels attached to city dots must use `setParentWithJump(dot)` and then local offsets.
 - Avoid AE expressions for scale compensation unless absolutely necessary; keyframe inverse scale/stroke values from the camera table.

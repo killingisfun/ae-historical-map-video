@@ -31,7 +31,7 @@ description: Build or repair professional After Effects historical map videos wi
 ## Bundled Resources
 
 - `scripts/prepare_russo_turkish_1877_demo.ps1`: copies the bundled map, icons, and JSX into a runnable AE folder.
-- `scripts/ae_russo_turkish_1877_v13_action_centered.jsx`: current working AE JSX template where camera focus is derived from the active route/node.
+- `scripts/ae_russo_turkish_1877_v14_action_viewport.jsx`: current working AE JSX template with action-viewport centering, stronger event zoom, and geo-parenting via `setParentWithJump`.
 - `scripts/render_1880_balkans_basemap.py`: basemap renderer for historical boundaries and Natural Earth rivers/lakes.
 - `scripts/generate_milsymbol_assets.js`: regenerates APP-6/MIL-STD icon assets with `milsymbol` and `sharp`.
 - `scripts/package.json`: Node dependencies for regenerating symbol assets.
@@ -57,6 +57,7 @@ The script prints the output folder. In After Effects, run the copied `.jsx` fro
 - Parent all map-space layers to `MAP_RIG_geo_locked_camera`.
 - Parent label text to its point with `setParentWithJump`, then set the label's local offset.
 - Use `cameraRoute(rig, t, coords, scale)` for movement beats and `cameraNode(rig, t, lon, lat, scale)` for city/siege beats. Use raw `cameraFocus(...)` only for deliberate non-action overview shots.
+- Parent map-space layers to the rig with `setParentWithJump(rig)`, not plain `.parent = rig`, so camera math and layer coordinates stay in the same local space.
 - Keep UI layers such as title, subtitles, footer, and legend outside the map rig.
 - If old AE compositions show orange expression errors, inspect older comps first; the bundled template avoids expressions.
 
