@@ -22,6 +22,16 @@ Use primary/open-license sources first and keep the source URL visible in projec
 - Use for APP-6 / MIL-STD-style friendly and hostile unit symbols.
 - Prefer generated PNGs for After Effects compatibility, keep SVGs as source assets.
 
+## Tactical Icons
+
+- Iconify:
+  https://iconify.design/
+- Game-icons Iconify package:
+  https://icon-sets.iconify.design/game-icons/
+- Game-icons license:
+  https://game-icons.net/about.html
+- Use Game-icons for readable documentary pictograms such as cavalry, cannon, fort, objective flag, camp, and crossed swords. Keep attribution in project notes because Game-icons uses CC BY 3.0.
+
 ## After Effects
 
 - Keep JSX outputs standalone where possible.

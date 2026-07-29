@@ -6,5 +6,9 @@ data/
 *.mov
 *.avi
 *.log
+assets/portraits/*_result.json
+assets/portraits/portrait_jobs.json
+assets/portraits/*.png
+assets/portraits/*.jpg
 .DS_Store
 Thumbs.db

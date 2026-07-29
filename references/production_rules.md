@@ -38,7 +38,23 @@
 - Keep arrow strokes thin enough for `MACRO`; start at 4 px with inverse stroke compensation.
 - Keep arrowheads small and proportional; start at about 15x10 px at 1920x1080.
 - Use `milsymbol` for unit-style symbols when a military icon is needed, but do not overfill the map.
+- Use Iconify/Game-icons pictograms for readable story aids: cavalry, cannon, fort, camp, objective flag, and crossed swords.
+- Keep pictograms next to the active route or node and fade them with the same beat as the route.
 - City labels should be small, dark-backed or shadowed, and readable against territory colors.
+
+## Commander Cards
+
+- Use generated or historical portrait assets only as support for the map story.
+- Normalize people into round medallions before importing into AE.
+- Put medallions near the relevant route/node or in a deliberate UI card; never let them hide the active path.
+- Add names and roles in AE text layers, not inside the generated portrait image.
+- State generated portraits as historically inspired unless the asset is a verified public-domain portrait.
+
+## 2.5D / Cinematic Feel
+
+- Prefer controlled 2.5D effects inside AE: map shadow, light sweep, mild parallax panels, animated pulses, and depth-coded UI cards.
+- Do not switch to true 3D unless the map geometry and labels can still remain geo-locked.
+- If true 3D is used later, build it as a separate map precomp and validate screenshots at every action beat.
 
 ## Russian Narration
 
