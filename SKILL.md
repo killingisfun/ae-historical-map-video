@@ -31,12 +31,12 @@ description: Build or repair professional After Effects historical map videos wi
 ## Bundled Resources
 
 - `scripts/prepare_russo_turkish_1877_demo.ps1`: copies the bundled map, icons, and JSX into a runnable AE folder.
-- `scripts/ae_russo_turkish_1877_v17_avatar_trails.jsx`: current working AE JSX template with reference-style political map staging, action-viewport centering, commander/avatar route heads, thin trajectory trails, larger tactical pictograms, stable local symbol anchors, and geo-parenting via `setParentWithJump`.
+- `scripts/ae_russo_turkish_1877_v18_projection_lock.jsx`: current working AE JSX template with corrected PNG projection origin, reference-style political map staging, action-viewport centering, commander/avatar route heads, thin trajectory trails, larger tactical pictograms, stable local symbol anchors, and geo-parenting via `setParentWithJump`.
 - `scripts/render_1880_balkans_basemap.py`: basemap renderer for historical boundaries and Natural Earth rivers/lakes.
 - `scripts/generate_milsymbol_assets.js`: regenerates APP-6/MIL-STD icon assets with `milsymbol` and `sharp`.
 - `scripts/generate_iconify_tactical_assets.js`: generates Game-icons tactical pictograms through Iconify.
 - `scripts/make_portrait_medallions.py`: normalizes generated portraits into round documentary medallions.
-- `scripts/render_v17_preview_frames.py`: renders fast Pillow preview frames for action-centering, route-head avatars, and tactical-symbol readability before opening AE.
+- `scripts/render_v18_preview_frames.py`: renders fast Pillow preview frames for projection-lock, action-centering, route-head avatars, and tactical-symbol readability before opening AE.
 - `scripts/package.json`: Node dependencies for regenerating symbol assets.
 - `assets/balkans_1880_real_boundaries_v9_overscan.png`: clean overscan Balkan basemap.
 - `assets/milsymbol_assets/`: bundled friendly/hostile APP-6/MIL-STD symbol PNG/SVG assets generated with `milsymbol`.
@@ -67,7 +67,8 @@ The script prints the output folder. In After Effects, run the copied `.jsx` fro
 - Parent map-space layers to the rig with `setParentWithJump(rig)`, not plain `.parent = rig`, so camera math and layer coordinates stay in the same local space.
 - Keep UI layers such as title, subtitles, footer, and legend outside the map rig.
 - Use generated commander medallions and tactical pictograms only when they clarify who is moving, attacking, defending, or holding a node.
-- Run `render_v17_preview_frames.py` or an equivalent visual QA pass before handing over a larger scripted animation.
+- Run `render_v18_preview_frames.py` or an equivalent visual QA pass before handing over a larger scripted animation.
+- When the basemap PNG is centered and scaled in AE, `xy(lon, lat)` must include the map image origin: `composition_center - scaled_image_size / 2 + projected_pixel * image_scale`. Do not return only `projected_pixel * image_scale`; that creates visible drift at `CLOSE` and `MACRO`.
 - Place commander medallions and PNG tactical icons through stable geo anchors: the anchor is lon/lat, while portrait/icon offsets are local screen-space children. Do not use `xy(lon, lat) + dx/dy` for visible symbol placement, because zoom will multiply the offset.
 - For movement beats, prefer `routeTrail()` plus `movingMedallion()`: the thin route line is only the trail, while the commander/avatar is the moving head of the action. Avoid separate arrowheads unless the scene needs a conventional map arrow.
 - If old AE compositions show orange expression errors, inspect older comps first; the bundled template avoids expressions.

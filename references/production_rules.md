@@ -17,6 +17,7 @@
 ## Geo Locking
 
 - Every city, point, route, ring, and military marker must be placed by lon/lat.
+- The lon/lat projection must land in the same composition coordinate space as the centered/scaled PNG basemap. Include the basemap layer's top-left origin after scaling.
 - Map-space overlays belong under one `MAP_RIG_geo_locked_camera` null.
 - Parent map-space overlays with `setParentWithJump(rig)`. Plain `.parent = rig` can compensate transforms and make camera focus math disagree with visible layer positions.
 - UI layers do not belong under the map rig.
