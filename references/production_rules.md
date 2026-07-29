@@ -8,6 +8,8 @@
   - route: midpoint or decisive node;
   - siege: besieged city;
   - diplomatic/context beat: whole region or highlighted territory group.
+- If there is action in the sentence, the camera must be over that action. Do not place the active movement in a corner for composition balance.
+- Implement action beats with `cameraRoute()` or `cameraNode()`, not hand-picked nearby coordinates.
 - For tiny movements, such as Zimnitsa to Svishtov, use `MACRO`.
 - For long operational movement, use `MED` or a short `FAR -> MED` transition.
 - Avoid cutting between unrelated framed chunks. Move as one camera: overview, pan, controlled zoom.
