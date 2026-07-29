@@ -1,0 +1,45 @@
+# Historical AE Map Production Rules
+
+## Camera
+
+- Use exactly four named zoom levels: `FAR`, `MED`, `CLOSE`, `MACRO`.
+- Keep zoom values consistent inside one project. Do not use ad hoc values like 147, 153, or 212.
+- Center each beat on the active event:
+  - route: midpoint or decisive node;
+  - siege: besieged city;
+  - diplomatic/context beat: whole region or highlighted territory group.
+- For tiny movements, such as Zimnitsa to Svishtov, use `MACRO`.
+- For long operational movement, use `MED` or a short `FAR -> MED` transition.
+- Avoid cutting between unrelated framed chunks. Move as one camera: overview, pan, controlled zoom.
+
+## Geo Locking
+
+- Every city, point, route, ring, and military marker must be placed by lon/lat.
+- Map-space overlays belong under one `MAP_RIG_geo_locked_camera` null.
+- UI layers do not belong under the map rig.
+- Text labels attached to city dots must use `setParentWithJump(dot)` and then local offsets.
+- Avoid AE expressions for scale compensation unless absolutely necessary; keyframe inverse scale/stroke values from the camera table.
+
+## Map Design
+
+- Use a clean basemap without provider labels if possible.
+- Draw Russian labels manually for states, capitals, rivers, active cities, and routes.
+- Keep seas, lakes, rivers, and coastline water in one blue color family.
+- Do not use blue as a state fill when blue is used for water and Russian movement.
+- Territory fills should be muted and transparent enough for rivers and borders to remain visible.
+- Always include a legend when territory colors or route colors are present.
+
+## Routes And Symbols
+
+- Draw only active arrows unless the narration needs comparison.
+- Keep arrow strokes thin enough for `MACRO`; start at 4 px with inverse stroke compensation.
+- Keep arrowheads small and proportional; start at about 15x10 px at 1920x1080.
+- Use `milsymbol` for unit-style symbols when a military icon is needed, but do not overfill the map.
+- City labels should be small, dark-backed or shadowed, and readable against territory colors.
+
+## Russian Narration
+
+- Use one complete subtitle sentence per beat.
+- Write like a blogger explaining the map: concrete, chronological, and tied to visible movement.
+- When a sentence mentions movement, create a matching route or camera move.
+- When a sentence mentions a place, make that place visibly marked at that moment.

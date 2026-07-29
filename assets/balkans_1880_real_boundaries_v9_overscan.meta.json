@@ -1,0 +1,12 @@
+{
+  "width": 5120,
+  "height": 2880,
+  "lon_min": 14.0,
+  "lon_max": 35.2,
+  "lat_min": 38.2,
+  "lat_max": 51.4,
+  "projection": "web_mercator_crop",
+  "boundary_source": "aourednik/historical-basemaps world_1880.geojson",
+  "river_source": "Natural Earth ne_10m_rivers_lake_centerlines.geojson",
+  "lake_source": "Natural Earth ne_10m_lakes.geojson"
+}

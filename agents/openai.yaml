@@ -1,0 +1,4 @@
+interface:
+  display_name: "AE Historical Map Video"
+  short_description: "Professional After Effects historical map generator"
+  default_prompt: "Use $ae-historical-map-video to build a polished After Effects historical map video with locked geo overlays and stable camera moves."
