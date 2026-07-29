@@ -40,6 +40,7 @@
 - Use `milsymbol` for unit-style symbols when a military icon is needed, but do not overfill the map.
 - Use Iconify/Game-icons pictograms for readable story aids: cavalry, cannon, fort, camp, objective flag, and crossed swords.
 - Keep pictograms next to the active route or node and fade them with the same beat as the route.
+- Place PNG pictograms through a geo anchor plus local child offset. Never set a symbol to `map point + dx/dy`, because zoom turns that offset into apparent drifting.
 - City labels should be small, dark-backed or shadowed, and readable against territory colors.
 
 ## Commander Cards
@@ -47,6 +48,7 @@
 - Use generated or historical portrait assets only as support for the map story.
 - Normalize people into round medallions before importing into AE.
 - Put medallions near the relevant route/node or in a deliberate UI card; never let them hide the active path.
+- For active action beats, put medallions in stable local offsets around the route midpoint or contested node. If the story has two sides, flank the node with the two commanders.
 - Add names and roles in AE text layers, not inside the generated portrait image.
 - State generated portraits as historically inspired unless the asset is a verified public-domain portrait.
 
