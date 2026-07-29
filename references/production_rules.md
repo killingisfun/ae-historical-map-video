@@ -35,11 +35,13 @@
 ## Routes And Symbols
 
 - Draw only active arrows unless the narration needs comparison.
+- For movement beats, treat the route line as a trail and the commander/avatar medallion as the moving head. This is clearer than a separate arrowhead plus a detached portrait.
 - Keep arrow strokes thin enough for `MACRO`; start at 4 px with inverse stroke compensation.
 - Keep arrowheads small and proportional; start at about 15x10 px at 1920x1080.
 - Use `milsymbol` for unit-style symbols when a military icon is needed, but do not overfill the map.
 - Use Iconify/Game-icons pictograms for readable story aids: cavalry, cannon, fort, camp, objective flag, and crossed swords.
 - Keep pictograms next to the active route or node and fade them with the same beat as the route.
+- Tactical pictograms must be large enough to read at preview resolution. At 1920x1080, start near 90-110 px visual size for story icons and reduce only when they collide with city names.
 - Place PNG pictograms through a geo anchor plus local child offset. Never set a symbol to `map point + dx/dy`, because zoom turns that offset into apparent drifting.
 - City labels should be small, dark-backed or shadowed, and readable against territory colors.
 
