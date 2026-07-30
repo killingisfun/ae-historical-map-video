@@ -13,6 +13,8 @@
 - For tiny movements, such as Zimnitsa to Svishtov, use `MACRO`.
 - For long operational movement, use `MED` or a short `FAR -> MED` transition.
 - Avoid cutting between unrelated framed chunks. Move as one camera: overview, pan, controlled zoom.
+- Clamp camera rig positions against the transformed basemap bounds. If an edge-area event cannot stay perfectly centered without exposing black empty space, keep the event near center but prioritize a fully covered map frame.
+- The active event should still dominate the shot after clamping. If the event becomes too far off-center, use a wider zoom level or regenerate a larger basemap instead of accepting a corner composition.
 
 ## Geo Locking
 
@@ -32,6 +34,7 @@
 - Do not use blue as a state fill when blue is used for water and Russian movement.
 - Territory fills should be muted and transparent enough for rivers and borders to remain visible.
 - Always include a legend when territory colors or route colors are present.
+- For the revised narration format, use a minimal titleless legend pressed to the right: only state color swatches and state names. Do not include the word "ЛЕГЕНДА" unless the user explicitly asks for it.
 
 ## Routes And Symbols
 
@@ -74,3 +77,5 @@
 - Write like a blogger explaining the map: concrete, chronological, and tied to visible movement.
 - When a sentence mentions movement, create a matching route or camera move.
 - When a sentence mentions a place, make that place visibly marked at that moment.
+- Put the narration sentence in the top band. Do not use the old bottom text band for story narration.
+- Show the current year as a large lower-left marker, changing only when the story date changes.
