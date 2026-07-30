@@ -732,7 +732,7 @@
     cameraRoute(rig, 142, ROUTE_BESSARABIA_DANUBE, PLAN.MED);
     cameraRoute(rig, 156, ROUTE_LOWER_DANUBE_DEMO, PLAN.CLOSE);
     cameraRoute(rig, 170, ROUTE_ZIMNITSA_SVISHTOV, PLAN.MACRO);
-    cameraRoute(rig, 186, ROUTE_SVISHTOV_TARNOVO, PLAN.CLOSE);
+    cameraRoute(rig, 186, ROUTE_ZIMNITSA_SVISHTOV, PLAN.MACRO);
     ease(rig.property("Transform").property("Position"));
     ease(rig.property("Transform").property("Scale"));
 
