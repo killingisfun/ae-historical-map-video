@@ -35,10 +35,12 @@
 - Territory fills should be muted and transparent enough for rivers and borders to remain visible.
 - Always include a legend when territory colors or route colors are present.
 - For the revised narration format, use a minimal titleless legend pressed to the right: only state color swatches and state names. Do not include the word "ЛЕГЕНДА" unless the user explicitly asks for it.
+- Do not represent uprisings or repression with large arbitrary territory polygons. Use compact hatched incident clusters near real locations, then explain them with short labels.
 
 ## Routes And Symbols
 
 - Draw only active arrows unless the narration needs comparison.
+- Label any long or abstract line directly on the map. A line without a reason label should be treated as a visual bug.
 - For movement beats, treat the route line as a trail and the commander/avatar medallion as the moving head. This is clearer than a separate arrowhead plus a detached portrait.
 - Keep arrow strokes thin enough for `MACRO`; start at 4 px with inverse stroke compensation.
 - Keep arrowheads small and proportional; start at about 15x10 px at 1920x1080.

@@ -31,12 +31,12 @@ description: Build or repair professional After Effects historical map videos wi
 ## Bundled Resources
 
 - `scripts/prepare_russo_turkish_1877_demo.ps1`: copies the bundled map, icons, and JSX into a runnable AE folder.
-- `scripts/ae_russo_turkish_1877_v20_story_first_third.jsx`: current working AE JSX template for the first third of the revised long-form story. It keeps corrected PNG projection origin, edge-clamped action camera, top one-sentence Russian subtitles, large changing year marker, no bottom text band, minimal right-side state legend, geo-locked city labels/routes/zones, commander/avatar route heads, midline tactical pictograms, and geo-parenting via `setParentWithJump`.
+- `scripts/ae_russo_turkish_1877_v21_reference_style.jsx`: current working AE JSX template for the first third of the revised long-form story. It keeps corrected PNG projection origin, edge-clamped action camera, top one-sentence Russian subtitles, large changing year marker, no bottom text band, minimal right-side state legend, geo-locked city labels/routes, compact atlas-style uprising clusters, labeled routes/date badges, commander/avatar route heads, midline tactical pictograms, and geo-parenting via `setParentWithJump`.
 - `scripts/render_1880_balkans_basemap.py`: basemap renderer for historical boundaries and Natural Earth rivers/lakes.
 - `scripts/generate_milsymbol_assets.js`: regenerates APP-6/MIL-STD icon assets with `milsymbol` and `sharp`.
 - `scripts/generate_iconify_tactical_assets.js`: generates Game-icons tactical pictograms through Iconify.
 - `scripts/make_portrait_medallions.py`: normalizes generated portraits into round documentary medallions.
-- `scripts/render_v20_preview_frames.py`: renders fast Pillow preview frames for the revised first-third story, including camera edge-clamp checks, top subtitle readability, year marker, minimal legend, route-head avatars, Danube crossing alignment, and no-black-edge QA before opening AE.
+- `scripts/render_v21_preview_frames.py`: renders fast Pillow preview frames for the revised first-third story, including camera edge-clamp checks, top subtitle readability, year marker, minimal legend, compact uprising clusters, route labels, Danube crossing alignment, and no-black-edge QA before opening AE.
 - `scripts/package.json`: Node dependencies for regenerating symbol assets.
 - `assets/balkans_1880_real_boundaries_v9_overscan.png`: clean overscan Balkan basemap.
 - `assets/milsymbol_assets/`: bundled friendly/hostile APP-6/MIL-STD symbol PNG/SVG assets generated with `milsymbol`.
@@ -45,6 +45,7 @@ description: Build or repair professional After Effects historical map videos wi
 - `references/storyboard_ru_turkish_war_1877_10min.md`: 10-minute Russian narration/storyboard draft.
 - `references/production_rules.md`: stricter visual and camera checklist.
 - `references/reference_crusades_map_analysis.md`: local reference-video analysis distilled into reusable map-video style rules.
+- `references/reference_military_atlas_and_world_map_rig.md`: notes from the user's Russo-Turkish atlas reference and local World Map Rig V2 tutorial/template inspection.
 - `references/sources.md`: source links for historical basemap, Natural Earth, and milsymbol.
 - `references/local_image_api.md`: user's local Gemini tunnel/API workflow for generated portrait assets.
 
@@ -67,7 +68,7 @@ The script prints the output folder. In After Effects, run the copied `.jsx` fro
 - Parent map-space layers to the rig with `setParentWithJump(rig)`, not plain `.parent = rig`, so camera math and layer coordinates stay in the same local space.
 - Keep UI layers such as title, subtitles, footer, and legend outside the map rig.
 - Use generated commander medallions and tactical pictograms only when they clarify who is moving, attacking, defending, or holding a node.
-- Run `render_v20_preview_frames.py` or an equivalent visual QA pass before handing over a larger scripted animation.
+- Run `render_v21_preview_frames.py` or an equivalent visual QA pass before handing over a larger scripted animation.
 - When the basemap PNG is centered and scaled in AE, `xy(lon, lat)` must include the map image origin: `composition_center - scaled_image_size / 2 + projected_pixel * image_scale`. Do not return only `projected_pixel * image_scale`; that creates visible drift at `CLOSE` and `MACRO`.
 - Clamp camera rig positions against the transformed basemap bounds. Action should stay as centered as possible, but the map must never reveal black empty edges during edge-area events.
 - Use the current UI pattern for narration builds: one top subtitle sentence per beat, a large year marker near the lower-left, and no bottom narration band. Keep the right-side legend minimal and titleless: color swatches plus state names only.
@@ -75,6 +76,9 @@ The script prints the output folder. In After Effects, run the copied `.jsx` fro
 - For movement beats, prefer `routeTrail()` plus `movingMedallion()`: the thin route line is only the trail, while the commander/avatar is the moving head of the action. Avoid separate arrowheads unless the scene needs a conventional map arrow.
 - Put tactical pictograms on the middle of the route or the center of the contested area, not beside city labels. Use fixed city/node icons only when the icon is truly a fort, siege, capital, or objective at that place.
 - Use translucent zone overlays for captured/control areas and dashed outlines for contested, siege, or uncertain areas. Keep them subtle enough that route trails and city labels remain primary.
+- Do not use large arbitrary polygons for uprisings, massacres, public reaction, or other point-like events. Use compact atlas-style incident clusters: small hatched ovals/diamonds locked to real places, with labels and date badges.
+- Every non-obvious route must carry its own map label such as "распространение восстания", "сербское наступление", "османское давление", "проход через Румынию", or "ночная переправа". Unlabeled long lines read as mistakes.
+- World Map Rig V2 is useful as a motion-design reference: dark callout panels, thin arcs, yellow labels, image holders, and smooth camera. Do not replace the historical Balkan basemap with the generic world map if that would remove historical borders, rivers, or campaign context.
 - If old AE compositions show orange expression errors, inspect older comps first; the bundled template avoids expressions.
 
 ## When Extending To 10 Minutes
