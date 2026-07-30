@@ -44,6 +44,7 @@
 - Keep pictograms next to the active route or node and fade them with the same beat as the route.
 - Tactical pictograms must be large enough to read at preview resolution. At 1920x1080, start near 90-110 px visual size for story icons and reduce only when they collide with city names.
 - Place PNG pictograms through a geo anchor plus local child offset. Never set a symbol to `map point + dx/dy`, because zoom turns that offset into apparent drifting.
+- Put movement pictograms on the route midline, not beside city labels. City-adjacent pictograms are reserved for actual node objects such as forts, siege marks, capitals, or objectives.
 - City labels should be small, dark-backed or shadowed, and readable against territory colors.
 
 ## Commander Cards
@@ -54,6 +55,12 @@
 - For active action beats, put medallions in stable local offsets around the route midpoint or contested node. If the story has two sides, flank the node with the two commanders.
 - Add names and roles in AE text layers, not inside the generated portrait image.
 - State generated portraits as historically inspired unless the asset is a verified public-domain portrait.
+
+## Territory And Battle State
+
+- Use soft translucent fills for areas that become controlled or operationally occupied.
+- Use dashed outlines for contested, uncertain, siege, or disputed areas.
+- Territory overlays should sit below active routes, markers, and commander avatars.
 
 ## 2.5D / Cinematic Feel
 
